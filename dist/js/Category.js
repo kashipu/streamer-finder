@@ -1,5 +1,4 @@
-"use strict";
-class Category {
+export class Category {
     constructor(id, name, summary, image) {
         this.id = id;
         this.name = name;

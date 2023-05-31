@@ -1,4 +1,5 @@
 import { Platform } from "./Platform";
+import { Stream } from "./Stream";
 
 export const AllChannels: Channel[] = [];
 export class Channel {
@@ -20,7 +21,13 @@ export class Channel {
         this.platform = platform;
         AllChannels.push(this);
     }
+    static get allChannels() {
+        return AllChannels;
+    }
     get detailChannel() {
         return `\nCanal: ${this.name} \nResumen: ${this.summary} \nStreamer: ${this.streamerUser}`
+    }
+    set addPlatform(platform: Platform) {
+        this.platform = platform;
     }
 }

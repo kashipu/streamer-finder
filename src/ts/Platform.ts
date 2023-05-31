@@ -7,13 +7,14 @@ export class Platform {
     name: string;
     summary: string;
     sponsor: string;
-    channels: Channel[] = [];
+    channels?: Channel[] = [];
 
-    constructor(id: number, name: string, summary: string, sponsor: string) {
+    constructor(id: number, name: string, summary: string, sponsor: string, channels?: Channel[]) {
         this.id = id;
         this.name = name;
         this.summary = summary;
         this.sponsor = sponsor;
+        this.channels = channels;
         allPlatforms.push(this);
     }
 
@@ -23,5 +24,9 @@ export class Platform {
 
     get detailPlarform() {
         return `Plataforma: ${this.name} \nResumen: ${this.summary} \nSponsor: ${this.sponsor}`
+    }
+
+    set setChannel(channel: Channel) {
+        this.channels?.push(channel);
     }
 }

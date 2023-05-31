@@ -1,11 +1,27 @@
-class Stream {
-    id: number;
-    category: string[];
-    temas: string[];
+import { Channel } from "./Channel";
+import { Streamer } from "./Streamer";
+import { Category } from "./Category";
 
-    constructor(id: number, category: string[], temas: string[]) {
+export const allStreams: Stream[] = [];
+export class Stream {
+    id: number;
+    temas: string[];
+    channel: Channel;
+    streamer: Streamer;
+    category?: Category;
+
+    constructor(id: number, temas: string[], channel: Channel, streamer: Streamer, category?: Category) {
         this.id = id;
-        this.category = category;
         this.temas = temas;
+        this.channel = channel;
+        this.streamer = streamer;
+        this.category = category;
+        allStreams.push(this);
+    }
+    static get allStreams() {
+        return allStreams;
+    }
+    get detailStream() {
+        return `Stream ${this.id} \n Temas: ${this.temas} \n Canal: ${this.channel.name} \n Streamer: ${this.streamer.user} \n Categoría: ${this.category?.name}`;
     }
 }

@@ -9,7 +9,13 @@ export class Channel {
         this.platform = platform;
         AllChannels.push(this);
     }
+    static get allChannels() {
+        return AllChannels;
+    }
     get detailChannel() {
         return `\nCanal: ${this.name} \nResumen: ${this.summary} \nStreamer: ${this.streamerUser}`;
+    }
+    set addPlatform(platform) {
+        this.platform = platform;
     }
 }
