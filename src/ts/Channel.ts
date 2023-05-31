@@ -1,5 +1,6 @@
 import { Platform } from "./Platform";
 import { Stream } from "./Stream";
+import { Streamer } from "./Streamer";
 
 export const AllChannels: Channel[] = [];
 export class Channel {
@@ -9,7 +10,7 @@ export class Channel {
     streamerUser: string;
     summary: string;
     platform?: Platform;
-    streamer?: string;
+    streamer?: Streamer;
     stream?: Stream[];
 
     constructor(id: number, name: string, imageBanner: string, streamerUser: string, summary: string, platform?: Platform) {
